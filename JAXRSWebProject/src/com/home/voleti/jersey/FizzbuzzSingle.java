@@ -8,9 +8,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-	//Plain old Java Object it does not extend as class or implements 
-	//an interface
-
 	//The class registers its methods for the HTTP GET request using the @GET annotation. 
 	//Using the @Produces annotation, it defines that it can deliver several MIME types,
 	//text, XML and HTML. 
@@ -24,14 +21,9 @@ import javax.ws.rs.core.MediaType;
 		  // This method is called if HTML is request
 		  @GET
 		  @Produces(MediaType.TEXT_HTML)
-		  public String getFizzbuzzNumber(@PathParam("number1") String number1,
-				  @PathParam("number2") String number2) {
-			  
-			 System.out.println("number1=" + number1 + "number2=" + number2);
-			  
-			String printString = Fizzbuzz.getStringFromInputNumber(number1, number1);
+		  public String getFizzbuzzNumber(@PathParam("number1") String number1) {
 			
-			System.out.println("printString=" + printString);
+			String printString = Fizzbuzz.getStringFromInputNumber(number1, number1);
 			
 		    return "<html> " + "<title>" + "Hello Jersey" + "</title>"
 		        + "<body><h1>" + printString + "</body></h1>" + "</html> ";
